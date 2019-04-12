@@ -1,0 +1,4 @@
+E:\Sistema C Sharp\Datos\obj\Debug\netstandard2.0\Datos.csprojAssemblyReference.cache
+E:\Sistema C Sharp\Datos\obj\Debug\netstandard2.0\Datos.csproj.CoreCompileInputs.cache
+E:\Sistema C Sharp\Datos\obj\Debug\netstandard2.0\Datos.AssemblyInfoInputs.cache
+E:\Sistema C Sharp\Datos\obj\Debug\netstandard2.0\Datos.AssemblyInfo.cs

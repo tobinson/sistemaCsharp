@@ -1,0 +1,5 @@
+E:\Sistema C Sharp\sisVentas\obj\Debug\sisVentas.csprojAssemblyReference.cache
+E:\Sistema C Sharp\sisVentas\obj\Debug\sisVentas.Form1.resources
+E:\Sistema C Sharp\sisVentas\obj\Debug\sisVentas.Properties.Resources.resources
+E:\Sistema C Sharp\sisVentas\obj\Debug\sisVentas.csproj.GenerateResource.cache
+E:\Sistema C Sharp\sisVentas\obj\Debug\sisVentas.csproj.CoreCompileInputs.cache
