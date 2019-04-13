@@ -84,7 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Presentacion\Presentacion.csproj">
-      <Project>{87ff6807-45c7-4d0d-9af7-a4b79642e05c}</Project>
+      <Project>{40fa3688-84f4-480a-82fe-092856562d08}</Project>
       <Name>Presentacion</Name>
     </ProjectReference>
   </ItemGroup>

@@ -1,0 +1,1 @@
+E:\Sistema C Sharp\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache

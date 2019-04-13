@@ -1,4 +1,0 @@
-E:\Sistema C Sharp\Presentacion\obj\Debug\netstandard2.0\Presentacion.csprojAssemblyReference.cache
-E:\Sistema C Sharp\Presentacion\obj\Debug\netstandard2.0\Presentacion.csproj.CoreCompileInputs.cache
-E:\Sistema C Sharp\Presentacion\obj\Debug\netstandard2.0\Presentacion.AssemblyInfoInputs.cache
-E:\Sistema C Sharp\Presentacion\obj\Debug\netstandard2.0\Presentacion.AssemblyInfo.cs

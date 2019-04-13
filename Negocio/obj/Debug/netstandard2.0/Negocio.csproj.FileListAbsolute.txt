@@ -1,4 +1,0 @@
-E:\Sistema C Sharp\Negocio\obj\Debug\netstandard2.0\Negocio.csprojAssemblyReference.cache
-E:\Sistema C Sharp\Negocio\obj\Debug\netstandard2.0\Negocio.csproj.CoreCompileInputs.cache
-E:\Sistema C Sharp\Negocio\obj\Debug\netstandard2.0\Negocio.AssemblyInfoInputs.cache
-E:\Sistema C Sharp\Negocio\obj\Debug\netstandard2.0\Negocio.AssemblyInfo.cs
