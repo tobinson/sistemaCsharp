@@ -8,7 +8,8 @@ using Datos;
 using System.Data;
 namespace Negocio
 {
-    class NCategoria
+    //se agrega public para acceder desde presentacion
+     public class NCategoria
     {
         //metodo insertar que llama a insertar de dcategoria en datos
         public static string Insertar(string nombre,string descripcion,string textobuscar)
@@ -36,8 +37,7 @@ namespace Negocio
             obj.TextoBuscar = textobuscar;
             return obj.BuscarNombre(obj);
         }
-        //mostrar
-        //eliminar
+        //mostrar        
         public static DataTable Mostrar()
         {            
             return new DCategoria().Mostrar();

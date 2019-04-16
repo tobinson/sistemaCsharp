@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+//using para acceder a presentacion
+using Presentacion;
 namespace sisVentas
 {
     static class Program
@@ -16,7 +17,8 @@ namespace sisVentas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.Run(new Form1()); 
+            Application.Run(new frmCategoria());
         }
     }
 }
