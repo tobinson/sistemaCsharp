@@ -202,5 +202,63 @@ namespace Presentacion
             this.Limpiar();
             this.Habilitar(true);
         }
+        //muestra desaparece checkbox eliminar en datalistado
+        private void ChkEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkEliminar.Checked)
+            {
+                this.dataListado.Columns[0].Visible = true;
+            }
+            else
+            {
+                this.dataListado.Columns[0].Visible = true;
+            }
+        }
+        //activa desactiva checkbox eliminar en datalistado
+        private void DataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex==dataListado.Columns["eliminar"].Index)
+            {
+                DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListado.Rows[e.RowIndex].Cells["eliminar"];
+                chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult opcion;
+                opcion = MessageBox.Show("Reamente desea eliminar los registros", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (opcion==DialogResult.OK)
+                {
+                    string codigo;
+                    string rpta = "";
+                    foreach (DataGridViewRow row in dataListado.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            codigo = Convert.ToString(row.Cells[1].Value);
+                            rpta = NCategoria.Eliminar(Convert.ToInt32(codigo));
+
+                            if (rpta.Equals("Ok"))
+                            {
+                                this.MensajeOk("Se elimino correctamente el registro");
+                            }
+                            else
+                            {
+                                this.MensajeError(rpta);
+                            }
+                        }
+                    }
+                    this.Mostrar();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
     }
 }
