@@ -160,7 +160,7 @@ namespace Datos
                 parIdcategoria.ParameterName = "@idcategoria";
                 parIdcategoria.SqlDbType = SqlDbType.Int;
                 //parametro de salida por ser autonumerico
-                parIdcategoria.Direction = ParameterDirection.Output;
+                parIdcategoria.Value = Categoria.Idcategoria;
                 sqlcmd.Parameters.Add(parIdcategoria);
 
                 //ejecutamos nuestro comando
@@ -220,6 +220,7 @@ namespace Datos
                 sqlcon.ConnectionString = Conexion.cn;
                 //establecer el comando para ejecutar sentecias sql
                 SqlCommand sqlcmd = new SqlCommand();
+                sqlcmd.Connection = sqlcon;
                 sqlcmd.CommandText = "spbuscar_categoria";
                 sqlcmd.CommandType = CommandType.StoredProcedure;
 
