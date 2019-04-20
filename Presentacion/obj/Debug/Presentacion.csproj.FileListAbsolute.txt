@@ -1,4 +1,3 @@
-E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
 E:\Sistema C Sharp\Presentacion\bin\Debug\Presentacion.dll
 E:\Sistema C Sharp\Presentacion\bin\Debug\Presentacion.pdb
 E:\Sistema C Sharp\Presentacion\bin\Debug\Negocio.dll
@@ -8,6 +7,7 @@ E:\Sistema C Sharp\Presentacion\bin\Debug\Datos.pdb
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.csprojAssemblyReference.cache
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmCategoria.resources
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.csproj.GenerateResource.cache
+E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.dll
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.pdb

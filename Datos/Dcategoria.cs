@@ -186,8 +186,10 @@ namespace Datos
             {
                 //establesco la cadena de conexion
                 sqlcon.ConnectionString = Conexion.cn;
+               // sqlcon.Open();
                 //establecer el comando para ejecutar sentecias sql
                 SqlCommand sqlcmd = new SqlCommand();
+                sqlcmd.Connection = sqlcon;//indico al comando q cadena de conex va a usar
                 sqlcmd.CommandText = "spmostrar_categoria";
                 sqlcmd.CommandType = CommandType.StoredProcedure;
 
@@ -200,6 +202,10 @@ namespace Datos
             {
                 dtresultado = null;  
             }
+            //finally
+            //{
+            //    if (sqlcon.State == ConnectionState.Open) sqlcon.Close();
+            //}
             return dtresultado;
         }
         //Metodo Buscar nombre

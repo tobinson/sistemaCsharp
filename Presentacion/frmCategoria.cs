@@ -111,5 +111,96 @@ namespace Presentacion
         {
             this.BuscarNombre();
         }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            this.isNuevo = true;
+            this.isEditar = false;
+            this.Botones();
+            this.Limpiar();
+            this.Habilitar(true);
+            this.txtNombre.Focus();
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string rpta="";
+                if (this.txtNombre.Text==string.Empty)
+                {
+                    MensajeError("Falta ingresar algunos datos,seran remarcados");
+                    errorIcono.SetError(txtNombre,"Ingrese un nombre");
+                }
+                else //si no esta vacias las cajas
+                {
+                    if (this.isNuevo) //si es nuevo
+                    {                //opcional txtNombre.Text.Trim.Upper
+                        rpta = NCategoria.Insertar(txtNombre.Text,txtDescripcion.Text);
+                    }
+                    else
+                    {
+                        rpta = NCategoria.Editar(Convert.ToInt32(this.txtIdcategoria.Text),txtNombre.Text, txtDescripcion.Text);
+                    }
+                    if (rpta.Equals("Ok"))
+                    {
+                        if (this.isNuevo)
+                        {
+                            this.MensajeOk("Se inserto de forma correcta el registro");
+                        }
+                        else
+                        {
+                            this.MensajeOk("Se actualizo de forma correcta el registro");
+                        }
+                    }
+                    else
+                    {
+                        this.MensajeError(rpta);
+                    }
+                    //despues de editar o guardar dejarlos en false
+                    this.isNuevo = false;
+                    this.isEditar = false;
+                    this.Botones();
+                    this.Limpiar();
+                    this.Mostrar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+        //evento envia del listado a mantenimiento al hacer dobleclick 
+        private void DataListado_DoubleClick(object sender, EventArgs e)
+        {
+            this.txtIdcategoria.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idcategoria"].Value);
+            this.txtNombre.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["nombre"].Value);
+            this.txtDescripcion.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["descripcion"].Value);
+           
+            //muestra el primer tab
+            this.tabControl1.SelectedIndex = 1;
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            if (!this.txtIdcategoria.Text.Equals(""))
+            {
+                this.isEditar=true;
+                Botones();
+            }
+            else
+            {
+                MensajeError("Debe selecionar primero el registro a modificar");
+            }
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.isNuevo=false;
+            this.isEditar = false;
+            this.Botones();
+            this.Limpiar();
+            this.Habilitar(true);
+        }
     }
 }

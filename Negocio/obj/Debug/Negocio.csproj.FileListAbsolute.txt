@@ -1,9 +1,9 @@
-E:\Sistema C Sharp\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
 E:\Sistema C Sharp\Negocio\bin\Debug\Negocio.dll
 E:\Sistema C Sharp\Negocio\bin\Debug\Negocio.pdb
 E:\Sistema C Sharp\Negocio\bin\Debug\Datos.dll
 E:\Sistema C Sharp\Negocio\bin\Debug\Datos.pdb
 E:\Sistema C Sharp\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+E:\Sistema C Sharp\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
 E:\Sistema C Sharp\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 E:\Sistema C Sharp\Negocio\obj\Debug\Negocio.dll
 E:\Sistema C Sharp\Negocio\obj\Debug\Negocio.pdb

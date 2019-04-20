@@ -12,25 +12,30 @@ namespace Negocio
      public class NCategoria
     {
         //metodo insertar que llama a insertar de dcategoria en datos
-        public static string Insertar(string nombre,string descripcion,string textobuscar)
+        public static string Insertar(string nombre,string descripcion)
         {
             DCategoria obj = new DCategoria();
             obj.Nombre = nombre;
-            obj.Descripcion = descripcion;
-            obj.TextoBuscar = textobuscar;
+            obj.Descripcion = descripcion;            
             return obj.Insertar(obj);
         }
         //editar
-        public static string Editar(int idcategoria,string nombre, string descripcion, string textobuscar)
+        public static string Editar(int idcategoria,string nombre, string descripcion)
         {
             DCategoria obj = new DCategoria();
             obj.Idcategoria = idcategoria;
             obj.Nombre = nombre;
-            obj.Descripcion = descripcion;
-            obj.TextoBuscar = textobuscar;
+            obj.Descripcion = descripcion;            
             return obj.Editar(obj);
         }
         //eliminar
+        public static string Eliminar(int idcategoria)
+        {
+            DCategoria obj = new DCategoria();
+            obj.Idcategoria = idcategoria;
+            return obj.Eliminar(obj);
+        }
+        //buscar
         public static DataTable Buscar(string textobuscar)
         {
             DCategoria obj = new DCategoria();
@@ -39,8 +44,8 @@ namespace Negocio
         }
         //mostrar        
         public static DataTable Mostrar()
-        {            
-            return new DCategoria().Mostrar();
+        {
+            return new DCategoria().Mostrar();            
         }
 
     }
