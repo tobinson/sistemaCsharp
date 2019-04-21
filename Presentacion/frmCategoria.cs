@@ -61,11 +61,12 @@ namespace Presentacion
                 this.btnCancelar.Enabled = true;
             }
             else
-            {       //si no es editar o insertar habilitamos nuevo
+            {       //si no es editar o insertar habilitamos nuevo ambos f
                 this.Habilitar(false);
                 this.btnNuevo.Enabled = true;
                 this.btnGuardar.Enabled = false;
-                this.btnEditar.Enabled = true;
+                // this.btnEditar.Enabled = true;
+                this.btnEditar.Enabled = false;
                 this.btnCancelar.Enabled = false;
             }
         }
@@ -101,12 +102,12 @@ namespace Presentacion
             this.Habilitar(false);
             this.Botones();
         }
-
+        //buscar al hacer click
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             this.BuscarNombre();
         }
-
+        //buscar al hacer escribir en la caja de texto
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
             this.BuscarNombre();
@@ -159,10 +160,10 @@ namespace Presentacion
                     }
                     //despues de editar o guardar dejarlos en false
                     this.isNuevo = false;
-                    this.isEditar = false;
+                    this.isEditar = false;                
                     this.Botones();
                     this.Limpiar();
-                    this.Mostrar();
+                    this.Mostrar();                    
                 }
             }
             catch (Exception ex)
@@ -179,6 +180,7 @@ namespace Presentacion
            
             //muestra el primer tab
             this.tabControl1.SelectedIndex = 1;
+            this.btnEditar.Enabled = true;
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
@@ -211,7 +213,7 @@ namespace Presentacion
             }
             else
             {
-                this.dataListado.Columns[0].Visible = true;
+                this.dataListado.Columns[0].Visible = false;
             }
         }
         //activa desactiva checkbox eliminar en datalistado
@@ -232,18 +234,19 @@ namespace Presentacion
                 opcion = MessageBox.Show("Reamente desea eliminar los registros", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (opcion==DialogResult.OK)
                 {
-                    string codigo;
+                    string id;
                     string rpta = "";
-                    foreach (DataGridViewRow row in dataListado.Rows)
+                    foreach (DataGridViewRow row in dataListado.Rows) //recorre las filas
                     {
-                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        if (Convert.ToBoolean(row.Cells[0].Value)) //la celda 0 cnvierte a bool
                         {
-                            codigo = Convert.ToString(row.Cells[1].Value);
-                            rpta = NCategoria.Eliminar(Convert.ToInt32(codigo));
+                            id = Convert.ToString(row.Cells[1].Value); //obtiene su idcategoria
+                            rpta = NCategoria.Eliminar(Convert.ToInt32(id)); //envio el id
 
                             if (rpta.Equals("Ok"))
                             {
                                 this.MensajeOk("Se elimino correctamente el registro");
+                                this.chkEliminar.Checked=false;//despues de eliminar deselecciona el check
                             }
                             else
                             {
