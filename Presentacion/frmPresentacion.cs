@@ -36,9 +36,9 @@ namespace Presentacion
         //limpiar controles del form
         private void Limpiar()
         {
-            this.txtNombre.Text = string.Empty;
-            this.txtDescripcion.Text = string.Empty;
             this.txtIdpresentacion.Text = string.Empty;
+            this.txtNombre.Text = string.Empty;
+            this.txtDescripcion.Text = string.Empty;           
         }
         //habilitar controles del form
         private void Habilitar(bool valor)

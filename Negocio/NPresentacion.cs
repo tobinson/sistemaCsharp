@@ -12,7 +12,7 @@ namespace Negocio
     //se agrega public para acceder desde presentacion
     public class NPresentacion
     {
-        //metodo insertar que llama a insertar de dcategoria en datos
+        //metodo insertar 
         public static string Insertar(string nombre, string descripcion)
         {
             DPresentacion obj = new DPresentacion();

@@ -3,4 +3,3 @@ E:\Sistema C Sharp\Datos\bin\Debug\Datos.pdb
 E:\Sistema C Sharp\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
 E:\Sistema C Sharp\Datos\obj\Debug\Datos.dll
 E:\Sistema C Sharp\Datos\obj\Debug\Datos.pdb
-E:\Sistema C Sharp\Datos\obj\Debug\Datos.csprojAssemblyReference.cache

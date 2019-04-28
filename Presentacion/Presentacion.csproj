@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmArticulo.Designer.cs">
+      <DependentUpon>frmArticulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +62,11 @@
       <DependentUpon>frmPresentacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Negocio\Negocio.csproj">
@@ -64,12 +75,31 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmArticulo.resx">
+      <DependentUpon>frmArticulo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCategoria.resx">
       <DependentUpon>frmCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPresentacion.resx">
       <DependentUpon>frmPresentacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar_categoria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transparente.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
