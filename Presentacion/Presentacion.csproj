@@ -55,6 +55,12 @@
     <Compile Include="frmCategoria.Designer.cs">
       <DependentUpon>frmCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCategoria_Articulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCategoria_Articulo.Designer.cs">
+      <DependentUpon>frmCategoria_Articulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPresentacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCategoria.resx">
       <DependentUpon>frmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCategoria_Articulo.resx">
+      <DependentUpon>frmCategoria_Articulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPresentacion.resx">
       <DependentUpon>frmPresentacion.cs</DependentUpon>

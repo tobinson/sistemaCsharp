@@ -266,9 +266,10 @@
             this.btnBuscar_categoria.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBuscar_categoria.Location = new System.Drawing.Point(535, 25);
             this.btnBuscar_categoria.Name = "btnBuscar_categoria";
-            this.btnBuscar_categoria.Size = new System.Drawing.Size(30, 19);
+            this.btnBuscar_categoria.Size = new System.Drawing.Size(26, 19);
             this.btnBuscar_categoria.TabIndex = 16;
             this.btnBuscar_categoria.UseVisualStyleBackColor = true;
+            this.btnBuscar_categoria.Click += new System.EventHandler(this.BtnBuscar_categoria_Click);
             // 
             // txtIdcategoria
             // 

@@ -17,6 +17,24 @@ namespace Presentacion
         //variables indican si es editar o registrar
         private bool isNuevo = false;
         private bool isEditar = false;
+
+        //creo una instancia de frmarticulo
+        private static frmArticulo _Instancia;
+        //verifica si se creo el obj o no
+        public static frmArticulo GetInstancia()
+        {
+            if (_Instancia==null)
+            {
+                _Instancia = new frmArticulo();
+            }
+            return _Instancia;
+        }
+        //recibe txtidcategoria y nombre de categoria_articulo
+        public void setCategoria(string idcategoria,string nombre)
+        {
+            this.txtIdcategoria.Text = idcategoria;
+            this.txtCategoria.Text = nombre;
+        }
         public frmArticulo()
         {
             InitializeComponent();
@@ -262,6 +280,7 @@ namespace Presentacion
         private void DataListado_DoubleClick(object sender, EventArgs e)
         {
             this.txtIdarticulo.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idarticulo"].Value);
+            this.txtCodigo.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["codigo"].Value);
             this.txtNombre.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["nombre"].Value);
             this.txtDescripcion.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["descripcion"].Value);
             //====MOSTRAR IMAGEN=================
@@ -272,6 +291,7 @@ namespace Presentacion
             this.pxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
 
             this.txtIdcategoria.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idcategoria"].Value);
+            this.txtCategoria.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["nombre"].Value); //nombre de la categoria
             this.cmbPresentacion.SelectedValue = Convert.ToString(this.dataListado.CurrentRow.Cells["idpresentacion"].Value);
 
             //muestra el primer tab
@@ -327,6 +347,12 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+        //llama a frmCategoria_Articulo
+        private void BtnBuscar_categoria_Click(object sender, EventArgs e)
+        {
+            frmCategoria_Articulo form = new frmCategoria_Articulo();
+            form.ShowDialog();
         }
     }
 }
