@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 //using para acceder a datos
 using Datos;
 using System.Data;
+
 namespace Negocio
 {
     //se agrega public para acceder desde presentacion
