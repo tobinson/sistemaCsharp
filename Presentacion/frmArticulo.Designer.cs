@@ -66,6 +66,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
+            this.lblCombo = new System.Windows.Forms.Label();
+            this.cmbDos = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -214,6 +216,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbDos);
+            this.groupBox1.Controls.Add(this.lblCombo);
             this.groupBox1.Controls.Add(this.cmbPresentacion);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.btnBuscar_categoria);
@@ -449,6 +453,23 @@
             // 
             this.errorIcono.ContainerControl = this;
             // 
+            // lblCombo
+            // 
+            this.lblCombo.AutoSize = true;
+            this.lblCombo.Location = new System.Drawing.Point(458, 78);
+            this.lblCombo.Name = "lblCombo";
+            this.lblCombo.Size = new System.Drawing.Size(39, 13);
+            this.lblCombo.TabIndex = 19;
+            this.lblCombo.Text = "combo";
+            // 
+            // cmbDos
+            // 
+            this.cmbDos.FormattingEnabled = true;
+            this.cmbDos.Location = new System.Drawing.Point(440, 103);
+            this.cmbDos.Name = "cmbDos";
+            this.cmbDos.Size = new System.Drawing.Size(121, 21);
+            this.cmbDos.TabIndex = 20;
+            // 
             // frmArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,5 +534,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbPresentacion;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblCombo;
+        private System.Windows.Forms.ComboBox cmbDos;
     }
 }

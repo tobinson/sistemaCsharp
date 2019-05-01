@@ -57,7 +57,7 @@ namespace Presentacion
             string p1, p2;
             p1 = Convert.ToString(this.dataListado.CurrentRow.Cells["idcategoria"].Value);
             p2 = Convert.ToString(this.dataListado.CurrentRow.Cells["nombre"].Value);
-            form.setCategoria(p1,p2);
+            form.setCategoria(p1,p2);//envia los parametros al metodo
             this.Hide();
         }
     }

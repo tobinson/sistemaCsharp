@@ -137,7 +137,8 @@ namespace Presentacion
         {
             cmbPresentacion.DataSource = NPresentacion.Mostrar();
             cmbPresentacion.ValueMember = "idpresentacion";
-            cmbPresentacion.DisplayMember = "nombre";//de la presentacion
+            cmbPresentacion.DisplayMember = "nombre";//de la presentacion 
+            //cmbPresentacion.SelectedValue = 5;selecciona el valor del id 5
         }
         //cargar imagen
         private void BtnCargar_Click(object sender, EventArgs e)
@@ -289,11 +290,12 @@ namespace Presentacion
 
             this.pxImagen.Image = Image.FromStream(ms);//crea la imagen desde el ms
             this.pxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
-
+                //  CATEGORIA Y PRESENTACION
             this.txtIdcategoria.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["idcategoria"].Value);
             this.txtCategoria.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["nombre"].Value); //nombre de la categoria
-            this.cmbPresentacion.SelectedValue = Convert.ToString(this.dataListado.CurrentRow.Cells["idpresentacion"].Value);
-
+            //selecciona el texto del id=           devuelve el idpresentacion y con value muestra el contenido de ese id
+            this.cmbPresentacion.SelectedValue = Convert.ToString(this.dataListado.CurrentRow.Cells["idpresentacion"].Value);//nombre presentacion
+            
             //muestra el primer tab
             this.tabControl1.SelectedIndex = 1;
             this.btnEditar.Enabled = true;
@@ -310,7 +312,7 @@ namespace Presentacion
                 this.dataListado.Columns[0].Visible = false;
             }
         }
-
+        //eliminar
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             try
