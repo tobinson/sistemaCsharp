@@ -48,12 +48,19 @@ namespace Negocio
             obj.Idproveedor = idproveedor;
             return obj.Eliminar(obj);
         }
-        //buscar
-        public static DataTable Buscar(string textobuscar)
+        //buscar razon social
+        public static DataTable BuscarRazon_social(string textobuscar)
         {
             DProveedor obj = new DProveedor();
             obj.TextoBuscar = textobuscar;
-            return obj.BuscarNombre(obj);
+            return obj.BuscarRazon_social(obj);
+        }
+        //buscar numero documento
+        public static DataTable BuscarNum_documento(string textobuscar)
+        {
+            DProveedor obj = new DProveedor();
+            obj.TextoBuscar = textobuscar;
+            return obj.BuscarNum_documento(obj);
         }
         //mostrar        
         public static DataTable Mostrar()

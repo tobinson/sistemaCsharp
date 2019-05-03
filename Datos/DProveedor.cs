@@ -306,8 +306,8 @@ namespace Datos
             //}
             return dtresultado;
         }
-        //Metodo Buscar nombre
-        public DataTable BuscarNombre(DProveedor Proveedor)
+        //Metodo Buscar razon social
+        public DataTable BuscarRazon_social(DProveedor Proveedor)
         {
             //envio como parametro el nombre de la tabla
             DataTable dtresultado = new DataTable("proveedor");
@@ -319,7 +319,43 @@ namespace Datos
                 //establecer el comando para ejecutar sentecias sql
                 SqlCommand sqlcmd = new SqlCommand();
                 sqlcmd.Connection = sqlcon;
-                sqlcmd.CommandText = "spbuscar_proveedor";
+                sqlcmd.CommandText = "spbuscar_proveedor_razon_social";
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+
+                //parametro buscar
+                SqlParameter parTextoBuscar = new SqlParameter();
+                parTextoBuscar.ParameterName = "@textobuscar";
+                parTextoBuscar.SqlDbType = SqlDbType.VarChar;
+                parTextoBuscar.Size = 50;
+                //metodo get obtiene el metodo texto buscar
+                parTextoBuscar.Value = Proveedor.TextoBuscar;
+                sqlcmd.Parameters.Add(parTextoBuscar);
+
+                //ejecuto el comando y lleno el datatable
+                SqlDataAdapter sqldat = new SqlDataAdapter(sqlcmd);
+                //rellena el adaptador con mi datatable
+                sqldat.Fill(dtresultado);
+            }
+            catch (Exception ex)
+            {
+                dtresultado = null;
+            }
+            return dtresultado;
+        }
+        //Metodo Buscar numero de documento
+        public DataTable BuscarNum_documento(DProveedor Proveedor)
+        {
+            //envio como parametro el nombre de la tabla
+            DataTable dtresultado = new DataTable("proveedor");
+            SqlConnection sqlcon = new SqlConnection();
+            try
+            {
+                //establesco la cadena de conexion
+                sqlcon.ConnectionString = Conexion.cn;
+                //establecer el comando para ejecutar sentecias sql
+                SqlCommand sqlcmd = new SqlCommand();
+                sqlcmd.Connection = sqlcon;
+                sqlcmd.CommandText = "spbuscar_num_documento";
                 sqlcmd.CommandType = CommandType.StoredProcedure;
 
                 //parametro buscar
