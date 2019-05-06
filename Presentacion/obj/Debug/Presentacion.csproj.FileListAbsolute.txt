@@ -15,3 +15,4 @@ E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmPresentacion.resources
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmArticulo.resources
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.Properties.Resources.resources
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmCategoria_Articulo.resources
+E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmProveedor.resources

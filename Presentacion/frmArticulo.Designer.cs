@@ -43,6 +43,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbDos = new System.Windows.Forms.ComboBox();
+            this.lblCombo = new System.Windows.Forms.Label();
             this.cmbPresentacion = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnBuscar_categoria = new System.Windows.Forms.Button();
@@ -66,8 +68,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
-            this.lblCombo = new System.Windows.Forms.Label();
-            this.cmbDos = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -245,6 +245,23 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Articulos";
+            // 
+            // cmbDos
+            // 
+            this.cmbDos.FormattingEnabled = true;
+            this.cmbDos.Location = new System.Drawing.Point(440, 103);
+            this.cmbDos.Name = "cmbDos";
+            this.cmbDos.Size = new System.Drawing.Size(121, 21);
+            this.cmbDos.TabIndex = 20;
+            // 
+            // lblCombo
+            // 
+            this.lblCombo.AutoSize = true;
+            this.lblCombo.Location = new System.Drawing.Point(458, 78);
+            this.lblCombo.Name = "lblCombo";
+            this.lblCombo.Size = new System.Drawing.Size(39, 13);
+            this.lblCombo.TabIndex = 19;
+            this.lblCombo.Text = "combo";
             // 
             // cmbPresentacion
             // 
@@ -452,23 +469,6 @@
             // errorIcono
             // 
             this.errorIcono.ContainerControl = this;
-            // 
-            // lblCombo
-            // 
-            this.lblCombo.AutoSize = true;
-            this.lblCombo.Location = new System.Drawing.Point(458, 78);
-            this.lblCombo.Name = "lblCombo";
-            this.lblCombo.Size = new System.Drawing.Size(39, 13);
-            this.lblCombo.TabIndex = 19;
-            this.lblCombo.Text = "combo";
-            // 
-            // cmbDos
-            // 
-            this.cmbDos.FormattingEnabled = true;
-            this.cmbDos.Location = new System.Drawing.Point(440, 103);
-            this.cmbDos.Name = "cmbDos";
-            this.cmbDos.Size = new System.Drawing.Size(121, 21);
-            this.cmbDos.TabIndex = 20;
             // 
             // frmArticulo
             // 

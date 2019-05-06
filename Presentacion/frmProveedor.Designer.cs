@@ -32,6 +32,7 @@
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cmbBuscar = new System.Windows.Forms.ComboBox();
             this.dataListado = new System.Windows.Forms.DataGridView();
             this.eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -50,22 +51,21 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtIdproveedor = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbTipo_documento = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbSector_comercial = new System.Windows.Forms.ComboBox();
+            this.txtNum_documento = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtUrl = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtNum_documento = new System.Windows.Forms.TextBox();
-            this.cmbSector_comercial = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmbTipo_documento = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtUrl = new System.Windows.Forms.TextBox();
-            this.cmbBuscar = new System.Windows.Forms.ComboBox();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -101,6 +101,18 @@
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // cmbBuscar
+            // 
+            this.cmbBuscar.FormattingEnabled = true;
+            this.cmbBuscar.Items.AddRange(new object[] {
+            "Documento",
+            "Razon_social"});
+            this.cmbBuscar.Location = new System.Drawing.Point(3, 21);
+            this.cmbBuscar.Name = "cmbBuscar";
+            this.cmbBuscar.Size = new System.Drawing.Size(121, 21);
+            this.cmbBuscar.TabIndex = 8;
+            this.cmbBuscar.Text = "Documento";
+            // 
             // dataListado
             // 
             this.dataListado.AllowUserToAddRows = false;
@@ -116,6 +128,8 @@
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(527, 124);
             this.dataListado.TabIndex = 7;
+            this.dataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataListado_CellContentClick);
+            this.dataListado.DoubleClick += new System.EventHandler(this.DataListado_DoubleClick);
             // 
             // eliminar
             // 
@@ -126,7 +140,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(453, 48);
+            this.lblTotal.Location = new System.Drawing.Point(404, 48);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(35, 13);
             this.lblTotal.TabIndex = 6;
@@ -141,6 +155,7 @@
             this.chkEliminar.TabIndex = 5;
             this.chkEliminar.Text = "Eliminar";
             this.chkEliminar.UseVisualStyleBackColor = true;
+            this.chkEliminar.CheckedChanged += new System.EventHandler(this.ChkEliminar_CheckedChanged);
             // 
             // txtBuscar
             // 
@@ -166,6 +181,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "&Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // btnBuscar
             // 
@@ -175,6 +191,7 @@
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // btnCancelar
             // 
@@ -184,6 +201,7 @@
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnEditar
             // 
@@ -193,6 +211,7 @@
             this.btnEditar.TabIndex = 8;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // btnGuardar
             // 
@@ -202,6 +221,7 @@
             this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // btnNuevo
             // 
@@ -211,6 +231,7 @@
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // txtDireccion
             // 
@@ -256,7 +277,7 @@
             this.txtIdproveedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIdproveedor.Location = new System.Drawing.Point(120, 24);
             this.txtIdproveedor.Name = "txtIdproveedor";
-            this.txtIdproveedor.Size = new System.Drawing.Size(141, 20);
+            this.txtIdproveedor.Size = new System.Drawing.Size(49, 20);
             this.txtIdproveedor.TabIndex = 1;
             // 
             // groupBox1
@@ -288,6 +309,116 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Proveedores";
+            // 
+            // cmbTipo_documento
+            // 
+            this.cmbTipo_documento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.cmbTipo_documento.FormattingEnabled = true;
+            this.cmbTipo_documento.Items.AddRange(new object[] {
+            "Dni",
+            "Ruc"});
+            this.cmbTipo_documento.Location = new System.Drawing.Point(119, 76);
+            this.cmbTipo_documento.Name = "cmbTipo_documento";
+            this.cmbTipo_documento.Size = new System.Drawing.Size(48, 21);
+            this.cmbTipo_documento.TabIndex = 12;
+            this.cmbTipo_documento.Text = "Ruc";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(38, 82);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "T. Documento";
+            // 
+            // cmbSector_comercial
+            // 
+            this.cmbSector_comercial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.cmbSector_comercial.FormattingEnabled = true;
+            this.cmbSector_comercial.Items.AddRange(new object[] {
+            "Salud",
+            "Alimentos",
+            "Tecnologia",
+            "Ropa",
+            "Servicios"});
+            this.cmbSector_comercial.Location = new System.Drawing.Point(346, 24);
+            this.cmbSector_comercial.Name = "cmbSector_comercial";
+            this.cmbSector_comercial.Size = new System.Drawing.Size(121, 21);
+            this.cmbSector_comercial.TabIndex = 10;
+            this.cmbSector_comercial.Text = "Alimentos";
+            // 
+            // txtNum_documento
+            // 
+            this.txtNum_documento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtNum_documento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNum_documento.Location = new System.Drawing.Point(173, 75);
+            this.txtNum_documento.Name = "txtNum_documento";
+            this.txtNum_documento.Size = new System.Drawing.Size(88, 20);
+            this.txtNum_documento.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(276, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(66, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "S. Comercial";
+            // 
+            // txtUrl
+            // 
+            this.txtUrl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtUrl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUrl.Location = new System.Drawing.Point(346, 103);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(121, 20);
+            this.txtUrl.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(276, 116);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(20, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Url";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmail.Location = new System.Drawing.Point(346, 77);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(121, 20);
+            this.txtEmail.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(276, 84);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(32, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Email";
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTelefono.Location = new System.Drawing.Point(346, 51);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(121, 20);
+            this.txtTelefono.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(276, 58);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Telefono";
             // 
             // tabPage2
             // 
@@ -322,127 +453,6 @@
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 2;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(276, 33);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "S. Comercial";
-            // 
-            // txtNum_documento
-            // 
-            this.txtNum_documento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.txtNum_documento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNum_documento.Location = new System.Drawing.Point(173, 75);
-            this.txtNum_documento.Name = "txtNum_documento";
-            this.txtNum_documento.Size = new System.Drawing.Size(88, 20);
-            this.txtNum_documento.TabIndex = 3;
-            // 
-            // cmbSector_comercial
-            // 
-            this.cmbSector_comercial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.cmbSector_comercial.FormattingEnabled = true;
-            this.cmbSector_comercial.Items.AddRange(new object[] {
-            "Salud",
-            "Alimentos",
-            "Tecnologia",
-            "Ropa",
-            "Servicios"});
-            this.cmbSector_comercial.Location = new System.Drawing.Point(346, 24);
-            this.cmbSector_comercial.Name = "cmbSector_comercial";
-            this.cmbSector_comercial.Size = new System.Drawing.Size(121, 21);
-            this.cmbSector_comercial.TabIndex = 10;
-            this.cmbSector_comercial.Text = "Alimentos";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(38, 82);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "T. Documento";
-            // 
-            // cmbTipo_documento
-            // 
-            this.cmbTipo_documento.FormattingEnabled = true;
-            this.cmbTipo_documento.Items.AddRange(new object[] {
-            "Dni",
-            "Ruc"});
-            this.cmbTipo_documento.Location = new System.Drawing.Point(119, 76);
-            this.cmbTipo_documento.Name = "cmbTipo_documento";
-            this.cmbTipo_documento.Size = new System.Drawing.Size(48, 21);
-            this.cmbTipo_documento.TabIndex = 12;
-            this.cmbTipo_documento.Text = "Ruc";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(276, 58);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Telefono";
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTelefono.Location = new System.Drawing.Point(346, 51);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(121, 20);
-            this.txtTelefono.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(276, 84);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Email";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEmail.Location = new System.Drawing.Point(346, 77);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(121, 20);
-            this.txtEmail.TabIndex = 1;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(276, 116);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(20, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Url";
-            // 
-            // txtUrl
-            // 
-            this.txtUrl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.txtUrl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUrl.Location = new System.Drawing.Point(346, 103);
-            this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(121, 20);
-            this.txtUrl.TabIndex = 1;
-            // 
-            // cmbBuscar
-            // 
-            this.cmbBuscar.FormattingEnabled = true;
-            this.cmbBuscar.Items.AddRange(new object[] {
-            "Documento",
-            "Razon_social"});
-            this.cmbBuscar.Location = new System.Drawing.Point(3, 21);
-            this.cmbBuscar.Name = "cmbBuscar";
-            this.cmbBuscar.Size = new System.Drawing.Size(121, 21);
-            this.cmbBuscar.TabIndex = 8;
-            this.cmbBuscar.Text = "Documento";
-            // 
             // frmProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,6 +463,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmProveedor";
             this.Text = ".:. Mantenimiento de Proveedores .:.";
+            this.Load += new System.EventHandler(this.FrmProveedor_Load);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).EndInit();

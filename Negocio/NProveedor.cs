@@ -39,7 +39,7 @@ namespace Negocio
             obj.Telefono = telefono;
             obj.Email = email;
             obj.Url = url;
-            return obj.Insertar(obj);
+            return obj.Editar(obj);
         }
         //eliminar
         public static string Eliminar(int idproveedor)

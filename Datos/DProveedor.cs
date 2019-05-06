@@ -95,9 +95,17 @@ namespace Datos
                 parTipo_documento.ParameterName = "@tipo_documento";
                 parTipo_documento.SqlDbType = SqlDbType.VarChar;
                 parTipo_documento.Size = 20;
-                //metodo get obtiene el metodo Descrpcion
+                //metodo get q obtiene el tipo documento
                 parTipo_documento.Value = Proveedor.Tipo_documento;
                 sqlcmd.Parameters.Add(parTipo_documento);
+                //numero de  documento
+                SqlParameter parNum_documento = new SqlParameter();
+                parNum_documento.ParameterName = "@num_documento";
+                parNum_documento.SqlDbType = SqlDbType.VarChar;
+                parNum_documento.Size = 11;
+                //metodo get obtiene el metodo Descrpcion
+                parNum_documento.Value = Proveedor.Num_documento;
+                sqlcmd.Parameters.Add(parNum_documento);
                 //direccion
                 SqlParameter parDireccion = new SqlParameter();
                 parDireccion.ParameterName = "@direccion";
@@ -191,6 +199,14 @@ namespace Datos
                 //metodo get obtiene el metodo Descrpcion
                 parTipo_documento.Value = Proveedor.Tipo_documento;
                 sqlcmd.Parameters.Add(parTipo_documento);
+                //numero de documento
+                SqlParameter parNum_documento = new SqlParameter();
+                parNum_documento.ParameterName = "@num_documento";
+                parNum_documento.SqlDbType = SqlDbType.VarChar;
+                parNum_documento.Size = 20;
+                //metodo get obtiene el metodo Descrpcion
+                parNum_documento.Value = Proveedor.Num_documento;
+                sqlcmd.Parameters.Add(parNum_documento);
                 //direccion
                 SqlParameter parDireccion = new SqlParameter();
                 parDireccion.ParameterName = "@direccion";

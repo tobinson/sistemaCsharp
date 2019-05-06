@@ -21,8 +21,8 @@ namespace sisVentas
             //Application.Run(new frmCategoria());
             //Application.Run(new frmPresentacion());
             //Application.Run(new frmArticulo());
-            Application.Run(frmArticulo.GetInstancia());
-            
+            //Application.Run(frmArticulo.GetInstancia());
+            Application.Run(new frmProveedor());
         }
     }
 }
