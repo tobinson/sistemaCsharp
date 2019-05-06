@@ -6,53 +6,57 @@ using System.Threading.Tasks;
 //usings necesarios para trabajar con sql
 using System.Data;
 using System.Data.SqlClient;
+
 namespace Datos
 {
     //hacerlo public para acceder desde negocio
-    public class DProveedor
+    public class DCliente
     {
-        private int _Idproveedor;
-        private string _Razon_social;
-        private string _Sector_comercial;
+        private int _Idcliente;
+        private string _Nombre;
+        private string _Apellidos;
+        private string _Sexo;
+        private DateTime _Fecha_nacimiento;
         private string _Tipo_documento;
         private string _Num_documento;
         private string _Direccion;
         private string _Telefono;
         private string _Email;
-        private string _Url;
 
         private string _TextoBuscar;
 
-        public int Idproveedor { get => _Idproveedor; set => _Idproveedor = value; }
-        public string Razon_social { get => _Razon_social; set => _Razon_social = value; }
-        public string Sector_comercial { get => _Sector_comercial; set => _Sector_comercial = value; }
+        public int Idcliente { get => _Idcliente; set => _Idcliente = value; }
+        public string Nombre { get => _Nombre; set => _Nombre = value; }
+        public string Apellidos { get => _Apellidos; set => _Apellidos = value; }
+        public string Sexo { get => _Sexo; set => _Sexo = value; }
+        public DateTime Fecha_nacimiento { get => _Fecha_nacimiento; set => _Fecha_nacimiento = value; }
         public string Tipo_documento { get => _Tipo_documento; set => _Tipo_documento = value; }
         public string Num_documento { get => _Num_documento; set => _Num_documento = value; }
         public string Direccion { get => _Direccion; set => _Direccion = value; }
         public string Telefono { get => _Telefono; set => _Telefono = value; }
         public string Email { get => _Email; set => _Email = value; }
-        public string Url { get => _Url; set => _Url = value; }
         public string TextoBuscar { get => _TextoBuscar; set => _TextoBuscar = value; }
 
-        public DProveedor()
+        public DCliente()
         {
         }
 
-        public DProveedor(int idproveedor, string razon_social, string sector_social, string tipo_documento, string num_documento, string direccion, string telefono, string email, string url, string textoBuscar)
+        public DCliente(int idcliente, string nombre, string apellidos, string sexo, DateTime fecha_nacimiento, string tipo_documento, string num_documento, string direccion, string telefono, string email, string textoBuscar)
         {
-            this.Idproveedor = idproveedor;
-            this.Razon_social = razon_social;
-            this.Sector_comercial = sector_social;
+            this.Idcliente = idcliente;
+            this.Nombre = nombre;
+            this.Apellidos = apellidos;
+            this.Sexo = sexo;
+            this.Fecha_nacimiento = fecha_nacimiento;
             this.Tipo_documento = tipo_documento;
             this.Num_documento = num_documento;
             this.Direccion = direccion;
             this.Telefono = telefono;
             this.Email = email;
-            this.Url = url;
             this.TextoBuscar = textoBuscar;
         }
         //Metodo Insertar
-        public string Insertar(DProveedor Proveedor)
+        public string Insertar(DCliente Cliente)
         {
             string rpta = "";
             SqlConnection sqlcon = new SqlConnection();
@@ -64,47 +68,63 @@ namespace Datos
                 //establecer el comando para ejecutar sentecias sql
                 SqlCommand sqlcmd = new SqlCommand();
                 sqlcmd.Connection = sqlcon;
-                sqlcmd.CommandText = "spinsertar_proveedor";
+                sqlcmd.CommandText = "spinsertar_cliente";
                 sqlcmd.CommandType = CommandType.StoredProcedure;
 
-                //idproveedor
-                SqlParameter parIdproveedor = new SqlParameter();
-                parIdproveedor.ParameterName = "@idproveedor";
-                parIdproveedor.SqlDbType = SqlDbType.Int;
+                //declarar parametros q recibe el procedimiento almacenado
+                SqlParameter parIdcliente = new SqlParameter();
+                parIdcliente.ParameterName = "@idcliente";
+                parIdcliente.SqlDbType = SqlDbType.Int;
                 //parametro de salida por ser autonumerico
-                parIdproveedor.Direction = ParameterDirection.Output;
-                sqlcmd.Parameters.Add(parIdproveedor);
-                //razon social
-                SqlParameter parRazon_social = new SqlParameter();
-                parRazon_social.ParameterName = "@razon_social";
-                parRazon_social.SqlDbType = SqlDbType.VarChar;
-                parRazon_social.Size = 150;
+                parIdcliente.Direction = ParameterDirection.Output;
+                sqlcmd.Parameters.Add(parIdcliente);
+                //nombre
+                SqlParameter parNombre = new SqlParameter();
+                parNombre.ParameterName = "@nombre";
+                parNombre.SqlDbType = SqlDbType.VarChar;
+                parNombre.Size = 50;
                 //metodo get obtiene el metodo Nombre
-                parRazon_social.Value = Proveedor.Razon_social;
-                sqlcmd.Parameters.Add(parRazon_social);
-                //sector comercial
-                SqlParameter parSector_comercial = new SqlParameter();
-                parSector_comercial.ParameterName = "@sector_comercial";
-                parSector_comercial.SqlDbType = SqlDbType.VarChar;
-                parSector_comercial.Size = 50;
+                parNombre.Value = Cliente.Nombre;
+                sqlcmd.Parameters.Add(parNombre);
+                //apellidos
+                SqlParameter parApellidos = new SqlParameter();
+                parApellidos.ParameterName = "@apellidos";
+                parApellidos.SqlDbType = SqlDbType.VarChar;
+                parApellidos.Size = 40;
                 //metodo get obtiene el metodo Descrpcion
-                parSector_comercial.Value = Proveedor.Sector_comercial;
-                sqlcmd.Parameters.Add(parSector_comercial);
-                //tipo documento documento
+                parApellidos.Value = Cliente.Apellidos;
+                sqlcmd.Parameters.Add(parApellidos);
+                //sexo
+                SqlParameter parSexo = new SqlParameter();
+                parSexo.ParameterName = "@sexo";
+                parSexo.SqlDbType = SqlDbType.VarChar;
+                parSexo.Size = 1;
+                //metodo get obtiene el metodo Descrpcion
+                parSexo.Value = Cliente.Sexo;
+                sqlcmd.Parameters.Add(parSexo);
+                //fecha nacimiento
+                SqlParameter parFecha_nacimiento = new SqlParameter();
+                parFecha_nacimiento.ParameterName = "@fecha_nacimiento";
+                parFecha_nacimiento.SqlDbType = SqlDbType.DateTime;
+                //parFecha_nacimiento.Size = 40;
+                //metodo get obtiene el metodo Descrpcion
+                parFecha_nacimiento.Value = Cliente.Fecha_nacimiento;
+                sqlcmd.Parameters.Add(parFecha_nacimiento);
+                //tipo documento
                 SqlParameter parTipo_documento = new SqlParameter();
                 parTipo_documento.ParameterName = "@tipo_documento";
                 parTipo_documento.SqlDbType = SqlDbType.VarChar;
                 parTipo_documento.Size = 20;
-                //metodo get q obtiene el tipo documento
-                parTipo_documento.Value = Proveedor.Tipo_documento;
+                //metodo get obtiene el metodo Descrpcion
+                parTipo_documento.Value = Cliente.Tipo_documento;
                 sqlcmd.Parameters.Add(parTipo_documento);
-                //numero de  documento
+                //numero documento
                 SqlParameter parNum_documento = new SqlParameter();
                 parNum_documento.ParameterName = "@num_documento";
                 parNum_documento.SqlDbType = SqlDbType.VarChar;
                 parNum_documento.Size = 11;
                 //metodo get obtiene el metodo Descrpcion
-                parNum_documento.Value = Proveedor.Num_documento;
+                parNum_documento.Value = Cliente.Num_documento;
                 sqlcmd.Parameters.Add(parNum_documento);
                 //direccion
                 SqlParameter parDireccion = new SqlParameter();
@@ -112,7 +132,7 @@ namespace Datos
                 parDireccion.SqlDbType = SqlDbType.VarChar;
                 parDireccion.Size = 100;
                 //metodo get obtiene el metodo Descrpcion
-                parDireccion.Value = Proveedor.Direccion;
+                parDireccion.Value = Cliente.Direccion;
                 sqlcmd.Parameters.Add(parDireccion);
                 //telefono
                 SqlParameter parTelefono = new SqlParameter();
@@ -120,24 +140,16 @@ namespace Datos
                 parTelefono.SqlDbType = SqlDbType.VarChar;
                 parTelefono.Size = 10;
                 //metodo get obtiene el metodo Descrpcion
-                parTelefono.Value = Proveedor.Telefono;
+                parTelefono.Value = Cliente.Telefono;
                 sqlcmd.Parameters.Add(parTelefono);
-                //email
+                //telefono
                 SqlParameter parEmail = new SqlParameter();
                 parEmail.ParameterName = "@email";
                 parEmail.SqlDbType = SqlDbType.VarChar;
                 parEmail.Size = 50;
                 //metodo get obtiene el metodo Descrpcion
-                parEmail.Value = Proveedor.Email;
+                parEmail.Value = Cliente.Email;
                 sqlcmd.Parameters.Add(parEmail);
-                //Url
-                SqlParameter parUrl = new SqlParameter();
-                parUrl.ParameterName = "@url";
-                parUrl.SqlDbType = SqlDbType.VarChar;
-                parUrl.Size = 50;
-                //metodo get obtiene el metodo Descrpcion
-                parUrl.Value = Proveedor.Url;
-                sqlcmd.Parameters.Add(parUrl);
 
                 //ejecutamos nuestro comando
                 rpta = sqlcmd.ExecuteNonQuery() == 1 ? "Ok" : "No se ingreso el registro";
@@ -153,7 +165,7 @@ namespace Datos
             return rpta;
         }
         //Metodo Editar
-        public string Editar(DProveedor Proveedor)
+        public string Editar(DCliente Cliente)
         {
             string rpta = "";
             SqlConnection sqlcon = new SqlConnection();
@@ -165,47 +177,63 @@ namespace Datos
                 //establecer el comando para ejecutar sentecias sql
                 SqlCommand sqlcmd = new SqlCommand();
                 sqlcmd.Connection = sqlcon;
-                sqlcmd.CommandText = "speditar_proveedor";
+                sqlcmd.CommandText = "speditar_cliente";
                 sqlcmd.CommandType = CommandType.StoredProcedure;
 
-                //declarar parametros q recibe el procedimiento almacenado id
-                SqlParameter parIdproveedor = new SqlParameter();
-                parIdproveedor.ParameterName = "@idproveedor";
-                parIdproveedor.SqlDbType = SqlDbType.Int;
+                //declarar parametros q recibe el procedimiento almacenado
+                SqlParameter parIdcliente = new SqlParameter();
+                parIdcliente.ParameterName = "@idcliente";
+                parIdcliente.SqlDbType = SqlDbType.Int;
                 //parametro de entrada necesario para editar
-                parIdproveedor.Value = Proveedor.Idproveedor;
-                sqlcmd.Parameters.Add(parIdproveedor);
-                //razon social
-                SqlParameter parRazon_social = new SqlParameter();
-                parRazon_social.ParameterName = "@razon_social";
-                parRazon_social.SqlDbType = SqlDbType.VarChar;
-                parRazon_social.Size = 150;
+                parIdcliente.Value = Cliente.Idcliente;
+                sqlcmd.Parameters.Add(parIdcliente);
+                //nombre
+                SqlParameter parNombre = new SqlParameter();
+                parNombre.ParameterName = "@nombre";
+                parNombre.SqlDbType = SqlDbType.VarChar;
+                parNombre.Size = 50;
                 //metodo get obtiene el metodo Nombre
-                parRazon_social.Value = Proveedor.Razon_social;
-                sqlcmd.Parameters.Add(parRazon_social);
-                //sector comercial
-                SqlParameter parSector_comercial = new SqlParameter();
-                parSector_comercial.ParameterName = "@sector_comercial";
-                parSector_comercial.SqlDbType = SqlDbType.VarChar;
-                parSector_comercial.Size = 50;
+                parNombre.Value = Cliente.Nombre;
+                sqlcmd.Parameters.Add(parNombre);
+                //apellidos
+                SqlParameter parApellidos = new SqlParameter();
+                parApellidos.ParameterName = "@apellidos";
+                parApellidos.SqlDbType = SqlDbType.VarChar;
+                parApellidos.Size = 40;
                 //metodo get obtiene el metodo Descrpcion
-                parSector_comercial.Value = Proveedor.Sector_comercial;
-                sqlcmd.Parameters.Add(parSector_comercial);
-                //tipo documento documento
+                parApellidos.Value = Cliente.Apellidos;
+                sqlcmd.Parameters.Add(parApellidos);
+                //sexo
+                SqlParameter parSexo = new SqlParameter();
+                parSexo.ParameterName = "@sexo";
+                parSexo.SqlDbType = SqlDbType.VarChar;
+                parSexo.Size = 1;
+                //metodo get obtiene el metodo Descrpcion
+                parSexo.Value = Cliente.Sexo;
+                sqlcmd.Parameters.Add(parSexo);
+                //fecha nacimiento
+                SqlParameter parFecha_nacimiento = new SqlParameter();
+                parFecha_nacimiento.ParameterName = "@fecha_nacimiento";
+                parFecha_nacimiento.SqlDbType = SqlDbType.DateTime;
+                //parFecha_nacimiento.Size = 40;
+                //metodo get obtiene el metodo Descrpcion
+                parFecha_nacimiento.Value = Cliente.Fecha_nacimiento;
+                sqlcmd.Parameters.Add(parFecha_nacimiento);
+                //tipo documento
                 SqlParameter parTipo_documento = new SqlParameter();
                 parTipo_documento.ParameterName = "@tipo_documento";
                 parTipo_documento.SqlDbType = SqlDbType.VarChar;
                 parTipo_documento.Size = 20;
                 //metodo get obtiene el metodo Descrpcion
-                parTipo_documento.Value = Proveedor.Tipo_documento;
+                parTipo_documento.Value = Cliente.Tipo_documento;
                 sqlcmd.Parameters.Add(parTipo_documento);
-                //numero de documento
+                //numero documento
                 SqlParameter parNum_documento = new SqlParameter();
                 parNum_documento.ParameterName = "@num_documento";
                 parNum_documento.SqlDbType = SqlDbType.VarChar;
-                parNum_documento.Size = 20;
+                parNum_documento.Size = 11;
                 //metodo get obtiene el metodo Descrpcion
-                parNum_documento.Value = Proveedor.Num_documento;
+                parNum_documento.Value = Cliente.Num_documento;
                 sqlcmd.Parameters.Add(parNum_documento);
                 //direccion
                 SqlParameter parDireccion = new SqlParameter();
@@ -213,7 +241,7 @@ namespace Datos
                 parDireccion.SqlDbType = SqlDbType.VarChar;
                 parDireccion.Size = 100;
                 //metodo get obtiene el metodo Descrpcion
-                parDireccion.Value = Proveedor.Direccion;
+                parDireccion.Value = Cliente.Direccion;
                 sqlcmd.Parameters.Add(parDireccion);
                 //telefono
                 SqlParameter parTelefono = new SqlParameter();
@@ -221,24 +249,16 @@ namespace Datos
                 parTelefono.SqlDbType = SqlDbType.VarChar;
                 parTelefono.Size = 10;
                 //metodo get obtiene el metodo Descrpcion
-                parTelefono.Value = Proveedor.Telefono;
+                parTelefono.Value = Cliente.Telefono;
                 sqlcmd.Parameters.Add(parTelefono);
-                //email
+                //telefono
                 SqlParameter parEmail = new SqlParameter();
                 parEmail.ParameterName = "@email";
                 parEmail.SqlDbType = SqlDbType.VarChar;
                 parEmail.Size = 50;
                 //metodo get obtiene el metodo Descrpcion
-                parEmail.Value = Proveedor.Email;
+                parEmail.Value = Cliente.Email;
                 sqlcmd.Parameters.Add(parEmail);
-                //Url
-                SqlParameter parUrl = new SqlParameter();
-                parUrl.ParameterName = "@url";
-                parUrl.SqlDbType = SqlDbType.VarChar;
-                parUrl.Size = 50;
-                //metodo get obtiene el metodo Descrpcion
-                parUrl.Value = Proveedor.Url;
-                sqlcmd.Parameters.Add(parUrl);
 
                 //ejecutamos nuestro comando
                 rpta = sqlcmd.ExecuteNonQuery() == 1 ? "Ok" : "No se actualizo el registro";
@@ -254,7 +274,7 @@ namespace Datos
             return rpta;
         }
         //Metodo Eliminar
-        public string Eliminar(DProveedor Proveedor)
+        public string Eliminar(DCliente Cliente)
         {
             string rpta = "";
             SqlConnection sqlcon = new SqlConnection();
@@ -266,16 +286,16 @@ namespace Datos
                 //establecer el comando para ejecutar sentecias sql
                 SqlCommand sqlcmd = new SqlCommand();
                 sqlcmd.Connection = sqlcon;
-                sqlcmd.CommandText = "speliminar_proveedor";
+                sqlcmd.CommandText = "speliminar_cliente";
                 sqlcmd.CommandType = CommandType.StoredProcedure;
 
                 //declarar parametros q recibe el procedimiento almacenado
-                SqlParameter parIdproveedor = new SqlParameter();
-                parIdproveedor.ParameterName = "@idproveedor";
-                parIdproveedor.SqlDbType = SqlDbType.Int;
+                SqlParameter parIdccliente = new SqlParameter();
+                parIdccliente.ParameterName = "@idcliente";
+                parIdccliente.SqlDbType = SqlDbType.Int;
                 //parametro de salida por ser autonumerico
-                parIdproveedor.Value = Proveedor.Idproveedor;
-                sqlcmd.Parameters.Add(parIdproveedor);
+                parIdccliente.Value = Cliente.Idcliente;
+                sqlcmd.Parameters.Add(parIdccliente);
 
                 //ejecutamos nuestro comando
                 rpta = sqlcmd.ExecuteNonQuery() == 1 ? "Ok" : "No se elimino el registro";
@@ -294,7 +314,7 @@ namespace Datos
         public DataTable Mostrar()
         {
             //envio como parametro el nombre de la tabla
-            DataTable dtresultado = new DataTable("proveedor");
+            DataTable dtresultado = new DataTable("cliente");
             SqlConnection sqlcon = new SqlConnection();
             try
             {
@@ -304,7 +324,7 @@ namespace Datos
                 //establecer el comando para ejecutar sentecias sql
                 SqlCommand sqlcmd = new SqlCommand();
                 sqlcmd.Connection = sqlcon;//indico al comando q cadena de conex va a usar
-                sqlcmd.CommandText = "spmostrar_proveedor";
+                sqlcmd.CommandText = "spmostrar_cliente";
                 sqlcmd.CommandType = CommandType.StoredProcedure;
 
                 //ejecuto el comando y lleno el datatable
@@ -322,11 +342,11 @@ namespace Datos
             //}
             return dtresultado;
         }
-        //Metodo Buscar razon social
-        public DataTable BuscarRazon_social(DProveedor Proveedor)
+        //Metodo Buscar nombre
+        public DataTable BuscarApellidos(DCliente Cliente)
         {
             //envio como parametro el nombre de la tabla
-            DataTable dtresultado = new DataTable("proveedor");
+            DataTable dtresultado = new DataTable("cliente");
             SqlConnection sqlcon = new SqlConnection();
             try
             {
@@ -335,7 +355,7 @@ namespace Datos
                 //establecer el comando para ejecutar sentecias sql
                 SqlCommand sqlcmd = new SqlCommand();
                 sqlcmd.Connection = sqlcon;
-                sqlcmd.CommandText = "spbuscar_proveedor_razon_social";
+                sqlcmd.CommandText = "spbuscar_cliente_apellidos";
                 sqlcmd.CommandType = CommandType.StoredProcedure;
 
                 //parametro buscar
@@ -344,7 +364,7 @@ namespace Datos
                 parTextoBuscar.SqlDbType = SqlDbType.VarChar;
                 parTextoBuscar.Size = 50;
                 //metodo get obtiene el metodo texto buscar
-                parTextoBuscar.Value = Proveedor.TextoBuscar;
+                parTextoBuscar.Value = Cliente.TextoBuscar;
                 sqlcmd.Parameters.Add(parTextoBuscar);
 
                 //ejecuto el comando y lleno el datatable
@@ -359,10 +379,10 @@ namespace Datos
             return dtresultado;
         }
         //Metodo Buscar numero de documento
-        public DataTable BuscarNum_documento(DProveedor Proveedor)
+        public DataTable BuscarNum_documento(DCliente Cliente)
         {
             //envio como parametro el nombre de la tabla
-            DataTable dtresultado = new DataTable("proveedor");
+            DataTable dtresultado = new DataTable("cliente");
             SqlConnection sqlcon = new SqlConnection();
             try
             {
@@ -380,7 +400,7 @@ namespace Datos
                 parTextoBuscar.SqlDbType = SqlDbType.VarChar;
                 parTextoBuscar.Size = 50;
                 //metodo get obtiene el metodo texto buscar
-                parTextoBuscar.Value = Proveedor.TextoBuscar;
+                parTextoBuscar.Value = Cliente.TextoBuscar;
                 sqlcmd.Parameters.Add(parTextoBuscar);
 
                 //ejecuto el comando y lleno el datatable
@@ -395,10 +415,6 @@ namespace Datos
             return dtresultado;
         }
     }
-    //    COMBOBOX C SHARP
-    //1 cuando es combo box no es dinamico y es llenado manualmente
-    //combo.text se usa para obtener el valor seleccionado
 
-    //2 cuando el combo es llenado de una fuente de datos
-    //combo.selectedvalue se usa para obtener el valor seleccionado
 }
+
