@@ -17,3 +17,4 @@ E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.Properties.Resources.reso
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmCategoria_Articulo.resources
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmProveedor.resources
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmCliente.resources
+E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.mdiBorrar.resources
