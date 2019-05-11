@@ -49,6 +49,12 @@
     <Compile Include="frmArticulo.Designer.cs">
       <DependentUpon>frmArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBorrar2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBorrar2.Designer.cs">
+      <DependentUpon>frmBorrar2.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,17 +73,35 @@
     <Compile Include="frmCliente.Designer.cs">
       <DependentUpon>frmCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPresentacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPresentacion.Designer.cs">
       <DependentUpon>frmPresentacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmProveedor.Designer.cs">
       <DependentUpon>frmProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTrabajador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTrabajador.Designer.cs">
+      <DependentUpon>frmTrabajador.cs</DependentUpon>
     </Compile>
     <Compile Include="mdiBorrar.cs">
       <SubType>Form</SubType>
@@ -102,6 +126,9 @@
     <EmbeddedResource Include="frmArticulo.resx">
       <DependentUpon>frmArticulo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBorrar2.resx">
+      <DependentUpon>frmBorrar2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCategoria.resx">
       <DependentUpon>frmCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,11 +138,20 @@
     <EmbeddedResource Include="frmCliente.resx">
       <DependentUpon>frmCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPresentacion.resx">
       <DependentUpon>frmPresentacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmProveedor.resx">
       <DependentUpon>frmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTrabajador.resx">
+      <DependentUpon>frmTrabajador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mdiBorrar.resx">
       <DependentUpon>mdiBorrar.cs</DependentUpon>
@@ -136,6 +172,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\transparente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sistema24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\almacen24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compras24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ventas24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mantenimiento24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\consulta24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ver24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\herramientas24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ventana24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login96.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,7 +24,11 @@ namespace sisVentas
             //Application.Run(frmArticulo.GetInstancia());
             //Application.Run(new frmProveedor());
             //Application.Run(new frmCliente());
-            Application.Run(new mdiBorrar());
+            //Application.Run(new mdiBorrar());
+            //Application.Run(new frmTrabajador());
+            //Application.Run(new frmBorrar2());
+            //Application.Run(new frmPrincipal());
+            Application.Run(new frmLogin());
         }
     }
 }

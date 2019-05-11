@@ -72,5 +72,14 @@ namespace Negocio
         {
             return new DTrabajador().Mostrar();
         }
+        //login
+        public static DataTable Login(string usuario,string password)
+        {
+            DTrabajador obj = new DTrabajador();
+            obj.Usuario = usuario;
+            obj.Password = password;
+            return obj.Login(obj);
+        }
+
     }
 }

@@ -452,5 +452,49 @@ namespace Datos
             }
             return dtresultado;
         }
+        //=================LOGIN====================
+        public DataTable Login(DTrabajador Trabajador)
+        {
+            //envio como parametro el nombre de la tabla
+            DataTable dtresultado = new DataTable("trabajador");
+            SqlConnection sqlcon = new SqlConnection();
+            try
+            {
+                //establesco la cadena de conexion
+                sqlcon.ConnectionString = Conexion.cn;
+                //establecer el comando para ejecutar sentecias sql
+                SqlCommand sqlcmd = new SqlCommand();
+                sqlcmd.Connection = sqlcon;
+                sqlcmd.CommandText = "splogin";
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+
+                //usuario
+                SqlParameter parUsuario = new SqlParameter();
+                parUsuario.ParameterName = "@usuario";
+                parUsuario.SqlDbType = SqlDbType.VarChar;
+                parUsuario.Size = 20;
+                //metodo get obtiene el metodo texto buscar
+                parUsuario.Value = Trabajador.Usuario;
+                sqlcmd.Parameters.Add(parUsuario);
+                //password
+                SqlParameter parPassword = new SqlParameter();
+                parPassword.ParameterName = "@password";
+                parPassword.SqlDbType = SqlDbType.VarChar;
+                parPassword.Size = 20;
+                //metodo get obtiene el metodo texto buscar
+                parPassword.Value = Trabajador.Password;
+                sqlcmd.Parameters.Add(parPassword);
+
+                //ejecuto el comando y lleno el datatable
+                SqlDataAdapter sqldat = new SqlDataAdapter(sqlcmd);
+                //rellena el adaptador con mi datatable
+                sqldat.Fill(dtresultado);
+            }
+            catch (Exception ex)
+            {
+                dtresultado = null;
+            }
+            return dtresultado;
+        }
     }
 }
