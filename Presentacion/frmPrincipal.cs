@@ -13,7 +13,11 @@ namespace Presentacion
     public partial class frmPrincipal : Form
     {
         private int childFormNumber = 0;
-
+        //recibo los datos obtenidos con el login al acceder al sistema(tabla trabajador)
+        public string Idtrabajador = "";
+        public string Apellidos = "";
+        public string Nombre = "";       
+        public string Acceso = "";
         public frmPrincipal()
         {
             InitializeComponent();
@@ -149,6 +153,58 @@ namespace Presentacion
             frmTrabajador frm = new frmTrabajador();
             frm.MdiParent = this;
             frm.Show();
+        }
+        //control de accesos
+        private void GestionUsuarios()
+        {
+            if (Acceso == "Administrador")//seleccion del combobox
+            {
+                this.mnuAlmacen.Enabled = true;
+                this.mnuCompras.Enabled = true;
+                this.mnuVentas.Enabled = true;
+                this.mnuMantenimiento.Enabled = true;
+                this.mnuConsultas.Enabled = true;
+                this.mnuHerramientas.Enabled = true;
+                this.tsCompras.Enabled = true;
+                this.tsVentas.Enabled = true;
+            }
+            else if (Acceso == "Vendedor")
+            {
+                this.mnuAlmacen.Enabled = false;
+                this.mnuCompras.Enabled = false;
+                this.mnuVentas.Enabled = true;
+                this.mnuMantenimiento.Enabled = true;
+                this.mnuConsultas.Enabled = true;
+                this.mnuHerramientas.Enabled = false;
+                this.tsCompras.Enabled = false;
+                this.tsVentas.Enabled = true;
+            }
+            else if (Acceso == "Almacenero")
+            {
+                this.mnuAlmacen.Enabled = true;
+                this.mnuCompras.Enabled = true;
+                this.mnuVentas.Enabled = false;
+                this.mnuMantenimiento.Enabled = false;
+                this.mnuConsultas.Enabled = true;
+                this.mnuHerramientas.Enabled = true;
+                this.tsCompras.Enabled = true;
+                this.tsVentas.Enabled = false;
+            }
+            else
+            {
+                this.mnuAlmacen.Enabled = false;
+                this.mnuCompras.Enabled = false;
+                this.mnuVentas.Enabled = false;
+                this.mnuMantenimiento.Enabled = false;
+                this.mnuConsultas.Enabled = false;
+                this.mnuHerramientas.Enabled = false;
+                this.tsCompras.Enabled = true;
+                this.tsVentas.Enabled = false;
+            }
+        }
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            GestionUsuarios();
         }
     }
 }
