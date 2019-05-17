@@ -9,7 +9,8 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    class DIngreso
+    //hacerlo public para acceder desde negocio
+    public class DIngreso
     {
         private int _Idingreso;
         private int _Idtrabajador;
