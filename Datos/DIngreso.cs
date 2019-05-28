@@ -49,7 +49,7 @@ namespace Datos
             this.Estado = estado;
         }
         //Metodo Insertar (ingreso y todos sus detalles a modo lista)
-        public string Insertar(DIngreso Ingreso,List<DDetalle_Ingreso> Detalle)
+        public string Insertar(DIngreso Ingreso,List<DDetalle_Ingreso> Detalle)//recibe 1 obj y una lista desde ningreso
         {
             string rpta = "";
             SqlConnection sqlcon = new SqlConnection();

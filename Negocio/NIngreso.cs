@@ -22,11 +22,14 @@ namespace Negocio
             obj.Correlativo = correlativo;
             obj.Igv= igv;
             obj.Estado = estado;
-            //recibo los detalles en una lista
+
+            //=========================================================
+            //recibo los detalles en una lista para enviarlo como lista a Insertar
             List<DDetalle_Ingreso> detalles = new List<DDetalle_Ingreso>();
             foreach (DataRow row in dDetalles.Rows)
             {
                 DDetalle_Ingreso detalle = new DDetalle_Ingreso();
+                //iddetalle_ingreso autogenerado,idingreso se obtendra de la clase ingreso
                 detalle.Idarticulo = Convert.ToInt32(row["idarticulo"].ToString());
                 detalle.Precio_compra = Convert.ToDecimal(row["precio_compra"].ToString());
                 detalle.Precio_venta = Convert.ToDecimal(row["precio_venta"].ToString());

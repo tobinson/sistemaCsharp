@@ -206,5 +206,15 @@ namespace Presentacion
         {
             GestionUsuarios();
         }
+
+        private void IngresosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIngreso frm = frmIngreso.getInstancia();
+            frm.MdiParent = this;
+            frm.Show();
+            //para insertar un ingreso necesito el idtrabajador del trabajador respnsable
+            frm.Idtrabajador = Convert.ToInt32(this.Idtrabajador);
+
+        }
     }
 }
