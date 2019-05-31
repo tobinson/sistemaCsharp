@@ -33,6 +33,9 @@
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTotal_pagado = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dtlistado_detalle = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -62,7 +65,6 @@
             this.txtProveedor = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.txtSerie = new System.Windows.Forms.TextBox();
@@ -86,6 +88,7 @@
             this.btnAnular = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtlistado_detalle)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -107,6 +110,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblTotal_pagado);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.dtlistado_detalle);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.txtIgv);
             this.groupBox1.Controls.Add(this.txtIdarticulo);
@@ -122,7 +128,6 @@
             this.groupBox1.Controls.Add(this.txtProveedor);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnCancelar);
-            this.groupBox1.Controls.Add(this.btnEditar);
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.btnNuevo);
             this.groupBox1.Controls.Add(this.txtSerie);
@@ -131,10 +136,38 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(7, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(580, 219);
+            this.groupBox1.Size = new System.Drawing.Size(580, 307);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingresos";
+            // 
+            // lblTotal_pagado
+            // 
+            this.lblTotal_pagado.AutoSize = true;
+            this.lblTotal_pagado.Location = new System.Drawing.Point(477, 283);
+            this.lblTotal_pagado.Name = "lblTotal_pagado";
+            this.lblTotal_pagado.Size = new System.Drawing.Size(22, 13);
+            this.lblTotal_pagado.TabIndex = 29;
+            this.lblTotal_pagado.Text = "0:0";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(377, 285);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(92, 13);
+            this.label17.TabIndex = 28;
+            this.label17.Text = "Total Pagado: S./";
+            // 
+            // dtlistado_detalle
+            // 
+            this.dtlistado_detalle.AllowUserToAddRows = false;
+            this.dtlistado_detalle.AllowUserToDeleteRows = false;
+            this.dtlistado_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtlistado_detalle.Location = new System.Drawing.Point(27, 175);
+            this.dtlistado_detalle.Name = "dtlistado_detalle";
+            this.dtlistado_detalle.Size = new System.Drawing.Size(524, 97);
+            this.dtlistado_detalle.TabIndex = 27;
             // 
             // groupBox2
             // 
@@ -170,6 +203,7 @@
             this.btnQuitar.Size = new System.Drawing.Size(24, 23);
             this.btnQuitar.TabIndex = 21;
             this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.BtnQuitar_Click);
             // 
             // btnAgregar
             // 
@@ -182,6 +216,7 @@
             this.btnAgregar.Size = new System.Drawing.Size(24, 23);
             this.btnAgregar.TabIndex = 21;
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // label14
             // 
@@ -312,7 +347,7 @@
             // 
             this.txtIdarticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.txtIdarticulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdarticulo.Location = new System.Drawing.Point(27, 186);
+            this.txtIdarticulo.Location = new System.Drawing.Point(82, 278);
             this.txtIdarticulo.Name = "txtIdarticulo";
             this.txtIdarticulo.Size = new System.Drawing.Size(46, 20);
             this.txtIdarticulo.TabIndex = 15;
@@ -415,40 +450,34 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(387, 186);
+            this.btnCancelar.Location = new System.Drawing.Point(296, 278);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(306, 186);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 8;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(225, 186);
+            this.btnGuardar.Location = new System.Drawing.Point(215, 278);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // btnNuevo
             // 
             this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnNuevo.Location = new System.Drawing.Point(144, 186);
+            this.btnNuevo.Location = new System.Drawing.Point(134, 278);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // txtSerie
             // 
@@ -492,7 +521,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(595, 232);
+            this.tabPage2.Size = new System.Drawing.Size(595, 321);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -522,6 +551,7 @@
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // tabControl1
             // 
@@ -530,7 +560,7 @@
             this.tabControl1.Location = new System.Drawing.Point(6, 9);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(603, 258);
+            this.tabControl1.Size = new System.Drawing.Size(603, 347);
             this.tabControl1.TabIndex = 7;
             // 
             // tabPage1
@@ -548,7 +578,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(595, 232);
+            this.tabPage1.Size = new System.Drawing.Size(595, 321);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -591,8 +621,10 @@
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataListado.Size = new System.Drawing.Size(585, 124);
+            this.dataListado.Size = new System.Drawing.Size(585, 235);
             this.dataListado.TabIndex = 7;
+            this.dataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataListado_CellContentClick);
+            this.dataListado.DoubleClick += new System.EventHandler(this.DataListado_DoubleClick);
             // 
             // eliminar
             // 
@@ -618,6 +650,7 @@
             this.chkAnular.TabIndex = 5;
             this.chkAnular.Text = "Anular";
             this.chkAnular.UseVisualStyleBackColor = true;
+            this.chkAnular.CheckedChanged += new System.EventHandler(this.ChkAnular_CheckedChanged);
             // 
             // btnImprimir
             // 
@@ -636,13 +669,14 @@
             this.btnAnular.TabIndex = 2;
             this.btnAnular.Text = "&Anular";
             this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.BtnAnular_Click);
             // 
             // frmIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(615, 276);
+            this.ClientSize = new System.Drawing.Size(615, 357);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmIngreso";
@@ -652,6 +686,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtlistado_detalle)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -687,7 +722,6 @@
         private System.Windows.Forms.TextBox txtProveedor;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.TextBox txtSerie;
@@ -721,5 +755,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.DataGridView dtlistado_detalle;
+        private System.Windows.Forms.Label lblTotal_pagado;
+        private System.Windows.Forms.Label label17;
     }
 }

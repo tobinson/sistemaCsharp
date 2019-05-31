@@ -17,11 +17,13 @@ namespace Negocio
         {
             DIngreso obj = new DIngreso();
             obj.Idtrabajador = idtrabajador;
+            obj.Idproveedor = idproveedor;
             obj.Fecha= fecha;
             obj.Tipo_comprobante = tipo_comprobante;
+            obj.Serie = serie;
             obj.Correlativo = correlativo;
             obj.Igv= igv;
-            obj.Estado = estado;
+            obj.Estado = estado;                     
 
             //=========================================================
             //recibo los detalles en una lista para enviarlo como lista a Insertar
