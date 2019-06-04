@@ -47,7 +47,7 @@ namespace Presentacion
             this.txtIdcategoria.Visible = false;
             this.txtCategoria.ReadOnly = true;
 
-            this.LlenarComPresentacion();
+            this.LlenarComPresentacion();            
         }
         //mostrar mensaje de confirmacion
         private void MensajeOk(string mensaje)
@@ -112,8 +112,9 @@ namespace Presentacion
         //ocultar columnas
         private void OcultarColumnas()
         {
-            this.dataListado.Columns[0].Visible = false;
+            this.dataListado.Columns[0].Visible = false;//columna eliminar
             this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns[2].Visible = false;
             this.dataListado.Columns[6].Visible = false;
             this.dataListado.Columns[8].Visible = false;
         }

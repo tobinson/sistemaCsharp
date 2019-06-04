@@ -121,6 +121,24 @@
     <Compile Include="frmTrabajador.Designer.cs">
       <DependentUpon>frmTrabajador.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVenta.Designer.cs">
+      <DependentUpon>frmVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVenta_Articulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVenta_Articulo.Designer.cs">
+      <DependentUpon>frmVenta_Articulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVenta_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVenta_Cliente.Designer.cs">
+      <DependentUpon>frmVenta_Cliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="mdiBorrar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +197,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTrabajador.resx">
       <DependentUpon>frmTrabajador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVenta.resx">
+      <DependentUpon>frmVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVenta_Articulo.resx">
+      <DependentUpon>frmVenta_Articulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVenta_Cliente.resx">
+      <DependentUpon>frmVenta_Cliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mdiBorrar.resx">
       <DependentUpon>mdiBorrar.cs</DependentUpon>

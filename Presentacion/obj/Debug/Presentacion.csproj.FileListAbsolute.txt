@@ -25,3 +25,6 @@ E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmLogin.resources
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmArticulo_Ingreso.resources
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmIngreso.resources
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmProveedor_Ingreso.resources
+E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmVenta.resources
+E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmVenta_Articulo.resources
+E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.frmVenta_Cliente.resources

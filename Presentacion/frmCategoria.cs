@@ -73,7 +73,7 @@ namespace Presentacion
         //ocultar columnas
         private void OcultarColumnas()
         {
-            this.dataListado.Columns[0].Visible = false;
+            this.dataListado.Columns[0].Visible = false;//columna eliminar
             this.dataListado.Columns[1].Visible = false;
         }
         //Metod mostrar

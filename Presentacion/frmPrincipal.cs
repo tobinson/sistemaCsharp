@@ -216,5 +216,14 @@ namespace Presentacion
             frm.Idtrabajador = Convert.ToInt32(this.Idtrabajador);
 
         }
+
+        private void VentasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmVenta frm = frmVenta.getInstancia();
+            frm.MdiParent = this;
+            frm.Show();
+            //envio a venta el idtrabajador desde principal obtenido al hacer login
+            frm.Idtrabajador = Convert.ToInt32(this.Idtrabajador);
+        }
     }
 }
