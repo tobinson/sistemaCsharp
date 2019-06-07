@@ -651,6 +651,7 @@
             this.btnComprobante.TabIndex = 3;
             this.btnComprobante.Text = "&Comprobante";
             this.btnComprobante.UseVisualStyleBackColor = true;
+            this.btnComprobante.Click += new System.EventHandler(this.BtnComprobante_Click);
             // 
             // btnImprimir
             // 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 //using para llamar a negocio
 using Negocio;
+using Presentacion.Reportes;
 
 namespace Presentacion
 {    
@@ -416,6 +417,13 @@ namespace Presentacion
             {
                 this.MensajeError("no hay fila para remover");
             }
+        }
+
+        private void BtnComprobante_Click(object sender, EventArgs e)
+        {
+            frmReporteFactura frm = new frmReporteFactura();
+            frm.Idventa = Convert.ToInt32(this.dataListado.CurrentRow.Cells["idventa"].Value);
+            frm.ShowDialog();
         }
     }
 }
