@@ -280,7 +280,7 @@
             // trabajadoresToolStripMenuItem
             // 
             this.trabajadoresToolStripMenuItem.Name = "trabajadoresToolStripMenuItem";
-            this.trabajadoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trabajadoresToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.trabajadoresToolStripMenuItem.Text = "Trabajador";
             this.trabajadoresToolStripMenuItem.Click += new System.EventHandler(this.TrabajadorToolStripMenuItem_Click);
             // 
@@ -433,6 +433,7 @@
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "frmPrincipal";

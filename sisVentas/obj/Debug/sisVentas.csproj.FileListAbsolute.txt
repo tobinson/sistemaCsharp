@@ -54,3 +54,8 @@ E:\Sistema C Sharp\sisVentas\obj\Debug\sisVentas.csprojAssemblyReference.cache
 E:\Sistema C Sharp\sisVentas\obj\Debug\sisVentas.csproj.CopyComplete
 E:\Sistema C Sharp\sisVentas\obj\Debug\sisVentas.exe
 E:\Sistema C Sharp\sisVentas\obj\Debug\sisVentas.pdb
+E:\Sistema C Sharp\sisVentas\bin\Debug\Datos.dll.config
+E:\Sistema C Sharp\sisVentas\bin\Debug\sisVentas.exe.manifest
+E:\Sistema C Sharp\sisVentas\bin\Debug\sisVentas.application
+E:\Sistema C Sharp\sisVentas\obj\Debug\sisVentas.exe.manifest
+E:\Sistema C Sharp\sisVentas\obj\Debug\sisVentas.application
