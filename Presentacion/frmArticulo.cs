@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 //using para llamar a negocio
 using Negocio;
+using Presentacion.Reportes;
 
 namespace Presentacion
 {
@@ -356,6 +357,12 @@ namespace Presentacion
         {
             frmCategoria_Articulo form = new frmCategoria_Articulo();
             form.ShowDialog();
+        }
+
+        private void BtnImprimir_Click(object sender, EventArgs e)
+        {
+            frmReporteArticulos frm = new frmReporteArticulos();
+            frm.ShowDialog();
         }
     }
 }

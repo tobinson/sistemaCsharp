@@ -27,7 +27,8 @@ namespace Presentacion.Reportes
                 this.reportViewer1.RefreshReport();
             }
             catch (Exception ex)
-            {                
+            {
+                this.reportViewer1.RefreshReport();
             }
         }
     }

@@ -367,15 +367,15 @@ namespace Presentacion
                     bool registrar = true;
                     foreach (DataRow row in dtDetalle.Rows)
                     {   //verificar si se repite el id ya q la fila es editable
-                        if (Convert.ToInt32(row["idarticulo"]) == Convert.ToInt32(txtIdarticulo.Text))
+                        if (Convert.ToInt32(row["iddetalle_ingreso"]) == Convert.ToInt32(txtIdarticulo.Text))
                         {
                             registrar = false;//si se repite no se registra
                             this.MensajeError("ya se encuentra el articulo en el detalle");
                         }
                     }
-                    if (registrar && (Convert.ToInt32(this.txtCantidad.Text)<Convert.ToInt32(this.txtStock_actual.Text)))
+                    if (registrar && (Convert.ToInt32(this.txtCantidad.Text)<=Convert.ToInt32(this.txtStock_actual.Text)))
                     {
-                        decimal subtotal = Convert.ToDecimal(this.txtStock_actual.Text) * Convert.ToDecimal(this.txtPrecio_compra.Text)-Convert.ToDecimal(this.txtDescuento.Text);
+                        decimal subtotal = Convert.ToDecimal(this.txtCantidad.Text) * Convert.ToDecimal(this.txtPrecio_venta.Text)-Convert.ToDecimal(this.txtDescuento.Text);
                         totalPago = totalPago + subtotal;
                         this.lblTotal_pagado.Text = totalPago.ToString("#0.00#");
                         //crear la fila 
@@ -387,7 +387,7 @@ namespace Presentacion
                         row["descuento"] = Convert.ToDecimal(this.txtDescuento.Text);
                         row["subtotal"] = subtotal;
                         this.dtDetalle.Rows.Add(row); //se agrega la fila row creada a dtDetalle
-                        this.limpiarDetalle();//se limpia las cajas al crear la fila para insertar otra fila
+                        this.limpiarDetalle();//se limpia las cajas al crear la fila para insertar otra fila                        
                     }
                     else
                     {
