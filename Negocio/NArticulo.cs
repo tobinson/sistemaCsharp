@@ -56,5 +56,10 @@ namespace Negocio
         {
             return new DArticulo().Mostrar();
         }
+        //stock
+        public static DataTable Mostrar_Stock_Articulos()
+        {
+            return new DArticulo().Mostrar_Stock_Articulos();
+        }
     }
 }

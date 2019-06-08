@@ -704,7 +704,6 @@
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.ErrorProvider errorIcono;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataListado;
         private System.Windows.Forms.DataGridViewCheckBoxColumn eliminar;
@@ -714,7 +713,6 @@
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnBuscar_proveedor;
@@ -758,5 +756,7 @@
         private System.Windows.Forms.DataGridView dtlistado_detalle;
         private System.Windows.Forms.Label lblTotal_pagado;
         private System.Windows.Forms.Label label17;
+        public System.Windows.Forms.TabControl tabControl1;
+        public System.Windows.Forms.TabPage tabPage2;
     }
 }

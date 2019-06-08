@@ -113,3 +113,4 @@ E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.dll
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.pdb
 E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.Reportes.frmReporteArticulos.resources
+E:\Sistema C Sharp\Presentacion\obj\Debug\Presentacion.Consultas.frm_Consulta_Stock_Articulos.resources

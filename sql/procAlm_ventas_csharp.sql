@@ -673,3 +673,36 @@ INNER JOIN trabajador t
 ON v.idtrabajador = t.idtrabajador
 where v.idventa=@idventa
 go
+
+--stock
+use [ventas-csharp]
+go
+
+SELECT        dbo.articulo.codigo, dbo.articulo.nombre, 
+			  dbo.categoria.nombre AS categoria, 
+		   sum(dbo.detalle_ingreso.stock_inicial) as cantidad_ingreso, 
+		   sum(dbo.detalle_ingreso.stock_actual) as cantidad_stock,
+		  (sum(dbo.detalle_ingreso.stock_inicial)-sum(dbo.detalle_ingreso.stock_actual)) as cantidad_venta
+FROM dbo.articulo 
+	INNER JOIN dbo.categoria ON dbo.articulo.idcategoria = dbo.categoria.idcategoria 
+    INNER JOIN  dbo.detalle_ingreso ON dbo.articulo.idarticulo = dbo.detalle_ingreso.idarticulo 
+    INNER JOIN dbo.ingreso ON dbo.detalle_ingreso.idingreso = dbo.ingreso.idingreso
+WHERE ingreso.estado<>'anulado'
+GROUP BY dbo.articulo.codigo, dbo.articulo.nombre,dbo.categoria.nombre
+go
+--procedimiento stock articulos
+
+create proc spstock_articulos
+as
+SELECT        dbo.articulo.codigo, dbo.articulo.nombre, 
+			  dbo.categoria.nombre AS categoria, 
+		   sum(dbo.detalle_ingreso.stock_inicial) as cantidad_ingreso, 
+		   sum(dbo.detalle_ingreso.stock_actual) as cantidad_stock,
+		  (sum(dbo.detalle_ingreso.stock_inicial)-sum(dbo.detalle_ingreso.stock_actual)) as cantidad_venta
+FROM dbo.articulo 
+	INNER JOIN dbo.categoria ON dbo.articulo.idcategoria = dbo.categoria.idcategoria 
+    INNER JOIN  dbo.detalle_ingreso ON dbo.articulo.idarticulo = dbo.detalle_ingreso.idarticulo 
+    INNER JOIN dbo.ingreso ON dbo.detalle_ingreso.idingreso = dbo.ingreso.idingreso
+WHERE ingreso.estado<>'anulado'
+GROUP BY dbo.articulo.codigo, dbo.articulo.nombre,dbo.categoria.nombre
+go

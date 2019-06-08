@@ -307,5 +307,38 @@ namespace Datos
             }
             return dtresultado;
         }
+        //para el reporte sotck
+        public DataTable Mostrar_Stock_Articulos()
+        {
+            //envio como parametro el nombre de la tabla
+            DataTable dtresultado = new DataTable("articulo");
+            SqlConnection sqlcon = new SqlConnection();
+            try
+            {
+                //establesco la cadena de conexion
+                sqlcon.ConnectionString = Conexion.cn;
+                // sqlcon.Open();
+                //establecer el comando para ejecutar sentecias sql
+                SqlCommand sqlcmd = new SqlCommand();
+                sqlcmd.Connection = sqlcon;//indico al comando q cadena de conex va a usar
+                sqlcmd.CommandText = "spstock_articulos";
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+
+                //ejecuto el comando y lleno el datatable
+                SqlDataAdapter sqldat = new SqlDataAdapter(sqlcmd);
+                //rellena el adaptador con mi datatable
+                sqldat.Fill(dtresultado);
+            }
+            catch (Exception ex)
+            {
+                dtresultado = null;
+            }
+            //finally
+            //{
+            //    if (sqlcon.State == ConnectionState.Open) sqlcon.Close();
+            //}
+            return dtresultado;
+        }
+
     }
 }

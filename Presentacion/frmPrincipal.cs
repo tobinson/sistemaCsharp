@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Presentacion.Consultas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -211,7 +212,7 @@ namespace Presentacion
         {
             frmIngreso frm = frmIngreso.getInstancia();
             frm.MdiParent = this;
-            frm.Show();
+            frm.Show();            
             //para insertar un ingreso necesito el idtrabajador del trabajador respnsable
             frm.Idtrabajador = Convert.ToInt32(this.Idtrabajador);
 
@@ -220,9 +221,37 @@ namespace Presentacion
         private void VentasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmVenta frm = frmVenta.getInstancia();
+            //frm.tabPage2.Parent = null; EL TAB Y TABPAGE PUBIC ANTES PARA OCULTAR TAB MANTENIMIENTO
+            frm.MdiParent = this;            
+            frm.Show();
+            //envio a venta el idtrabajador desde principal obtenido al hacer login
+            frm.Idtrabajador = Convert.ToInt32(this.Idtrabajador);
+        }
+
+        private void StockDeArticulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_Consulta_Stock_Articulos frm = new frm_Consulta_Stock_Articulos();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void VentasPorFechasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVenta frm = frmVenta.getInstancia();
+            frm.tabPage2.Parent = null; //EL TAB Y TABPAGE PUBIC ANTES PARA OCULTAR TAB MANTENIMIENTO
             frm.MdiParent = this;
             frm.Show();
             //envio a venta el idtrabajador desde principal obtenido al hacer login
+            frm.Idtrabajador = Convert.ToInt32(this.Idtrabajador);
+        }
+
+        private void ComprasPorFechasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIngreso frm = frmIngreso.getInstancia();
+            frm.tabPage2.Parent = null;
+            frm.MdiParent = this;
+            frm.Show();
+            //para insertar un ingreso necesito el idtrabajador del trabajador respnsable
             frm.Idtrabajador = Convert.ToInt32(this.Idtrabajador);
         }
     }

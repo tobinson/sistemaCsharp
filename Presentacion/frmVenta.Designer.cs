@@ -729,7 +729,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtCorrelativo;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblTotal_pagado;
         private System.Windows.Forms.Label label17;
@@ -765,7 +764,6 @@
         private System.Windows.Forms.TextBox txtIdventa;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dtFecha_fin;
@@ -784,5 +782,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtStock_actual;
         private System.Windows.Forms.TextBox txtDescuento;
+        public System.Windows.Forms.TabControl tabControl1;
+        public System.Windows.Forms.TabPage tabPage2;
     }
 }
